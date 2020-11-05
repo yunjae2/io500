@@ -77,7 +77,7 @@ function get_mdrealio {
 function build_ior {
   pushd $BUILD/ior
   ./bootstrap
-  ./configure --prefix=$INSTALL_DIR
+  ./configure --prefix=$INSTALL_DIR --with-daos=/home/yjlee/daos/install --with-cart=/home/yjlee/daos/install
   cd src
   $MAKE clean
   $MAKE install
