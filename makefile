@@ -4,7 +4,7 @@ CFLAGS += -std=gnu99 -Wall -Wempty-body -Werror -Wstrict-prototypes -Werror=mayb
 IORCFLAGS = $(shell grep CFLAGS ./build/ior/Makefile | cut -d "=" -f 2-)
 CFLAGS += -g3 -lefence -I./include/ -I./src/ -I./build/pfind/src/ -I./build/ior/src/
 IORLIBS = $(shell grep LIBS ./build/ior/Makefile | cut -d "=" -f 2-)
-LDFLAGS += -lm $(IORCFLAGS) $(IORLIBS) # -lgpfs # may need some additional flags as provided to IOR
+LDFLAGS += -L/home/yjlee/daos/install/lib64 -L/home/yjlee/daos/install/lib -lm $(IORCFLAGS) $(IORLIBS) # -lgpfs # may need some additional flags as provided to IOR
 
 VERSION_GIT=$(shell git describe --always --abbrev=12)
 VERSION_TREE=$(shell git diff src | wc -l | sed -e 's/   *//g' -e 's/^0//' | sed "s/\([0-9]\)/-\1/")
